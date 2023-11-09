@@ -15,7 +15,7 @@ export async function getStaticProps( { params } ) {
 // define a getStaticPaths() function to tell next.js all valid URLs: 1,2,3,4 
 // - this name is defined by next.js
 export async function getStaticPaths() {
-  const paths = getAllIds();
+  const paths = await getAllIds();
   return {
     paths,
     fallback: false
@@ -28,8 +28,8 @@ export default function Entry( { itemData } ) {
     <Layout>
       <article className="card col-6">
         <div className="card-body">
-          <h4 className="card-title">{itemData.id}</h4>
-          <h5 className="card-subtitle mb-2 text-body-secondary">{itemData.name}</h5>
+          <h4 className="card-title">{itemData.ID}</h4>
+          <h5 className="card-subtitle mb-2 text-body-secondary">{itemData.post_title}</h5>
         </div>
       </article>
     </Layout>
