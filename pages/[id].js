@@ -5,6 +5,7 @@ import { getAllIds, getData } from '../lib/data';
 // - this name is defined by next.js
 export async function getStaticProps( { params } ) {
   const itemData = await getData(params.id);
+  //console.log("This is in ID " + itemData.meta_concat);
   return {
     props: {
       itemData
@@ -28,8 +29,8 @@ export default function Entry( { itemData } ) {
     <Layout>
       <article className="card col-6">
         <div className="card-body">
-          <h4 className="card-title">{itemData.ID}</h4>
-          <h5 className="card-subtitle mb-2 text-body-secondary">{itemData.post_title}</h5>
+          <h4 className="card-title">{itemData.post_title}</h4>
+          <h5 className="card-subtitle mb-2 text-body-secondary">{itemData.meta_concat.my_cool_name}</h5>
         </div>
       </article>
     </Layout>
